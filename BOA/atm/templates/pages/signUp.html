@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="icon" type="image/x-icon" href="icons/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Sign Up</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background: linear-gradient(#237A57, #093028);
+            color: #ffffff;
+            height: 100vh;
+        }
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        h1{
+            font-size: 70px !important;
+            font-weight: bolder;
+        }
+        a, button{
+            transition: 0.5s ease;
+        }
+        a:hover, button:hover{
+            color: white;
+            background-color: #237A57 !important;
+            border: 1px solid white;
+        }
+        .button{
+            color: #237A57;
+        }
+        
+        .leaf-icon{
+        font-size: 4vw !important;
+       }
+      
+      ::placeholder{
+        color: rgb(224, 217, 217);
+        text-align: center;
+        font-size: 1.8vw;
+        font-weight: 200;
+      }
+    
+    .row .body-btn{
+        background-color: white;
+        color: #237A57;
+    }
+
+    .row .body-btn:hover{
+        background-color: inherit !important;
+        color: white;
+    }
+
+    .heading{
+        font-size: 4vw;
+    }
+    input{
+        background-color: inherit;
+        color: white;
+        font-size: 1.5vw;
+        border-bottom: 1px solid white !important;
+    }
+    input:focus{
+        border: none;
+        outline: none;
+        border-bottom: 1px solid white !important;
+    }
+    ._body{
+        text-align: justify;
+    }
+
+    </style>
+  </head>
+  <body>
+    <div class="container pt-3">
+        <div class="row align-items-center ">
+            <div class="col-10">
+                <a href="main-page.html" class="text-decoration-none button bg-white fs-3 fw-bold p-2 px-4 rounded"><i class="fa-solid fa-angles-left"></i> Back</a>
+            </div>
+            <div class="col-2 d-flex align-items-center gap-2">
+                <i class="fa-brands fa-canadian-maple-leaf leaf-icon"></i>
+                <h1>BOA</h1>
+            </div>
+        </div>
+<!-- --------------------------------------body---------------------------------------------- -->
+       <div class="container w-75 text-center">
+        
+        <div class="row">
+            <h2 class="heading fw-bold">Create New Account</h2>
+        </div>
+
+        <div class="container-fluid _body">
+            <form method="POST">
+                 {% csrf_token %}
+            <div class="row justify-content-center pt-4">
+                <div class="col d-flex justify-content-around">
+                    <label for="" class="fs-3">Name:</label> <input type="text" name="name" class=" border-top-0 border-start-0 border-end-0 border-white">
+                </div>
+                <div class="col d-flex justify-content-between">
+                    <label for="" class="fs-3">Username</label> <input type="text" name="usrname" class=" border-top-0 border-start-0 border-end-0 border-white">
+                </div>
+            </div>
+    
+            <div class="row justify-content-center pt-4">
+                <div class="col d-flex justify-content-around">
+                    <label for="" class="fs-3">CNIC:</label> <input type="text" name="cnic" class=" border-top-0 border-start-0 border-end-0 border-white">
+                </div>
+                <div class="col d-flex justify-content-between">
+                    <label for="" class="fs-3">Mobile No:</label> <input type="number" name="mno" class=" border-top-0 border-start-0 border-end-0 border-white">
+                </div>
+            </div>
+    
+            <div class="row justify-content-center pt-4">
+                <div class="col d-flex justify-content-around">
+                    <label for="" class="fs-3">Email:</label> <input type="email" name="email" class=" border-top-0 border-start-0 border-end-0 border-white">
+                </div>
+                <div class="col d-flex justify-content-between">
+                    <label for="" class="fs-3">Password:</label> <input type="text" name="password" class=" border-top-0 border-start-0 border-end-0 border-white">
+                </div>
+            </div>
+    
+            <div class="row justify-content-center pt-4">
+                <div class="col d-flex justify-content-around">
+                    <label for="" class="fs-3">City:</label> <input type="text" name="city" class=" border-top-0 border-start-0 border-end-0 border-white">
+                </div>
+                <div class="col d-flex justify-content-between">
+                    <label for="" class="fs-3">Address:</label> <input type="text" name="address" class=" border-top-0 border-start-0 border-end-0 border-white">
+                </div>
+            </div>
+
+            <div class="row border-bottom border-3 pt-5"></div>
+        </div>
+
+            <div class="row justify-content-center gap-4 pt-5">
+                <button type="submit"  class="body-btn text-decoration-none text-center fs-4 fw-bold py-2 rounded-pill w-50">Create Account</button>
+                </div>
+            </form>
+
+       </div>
+        
+        
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  </body>
+</html>

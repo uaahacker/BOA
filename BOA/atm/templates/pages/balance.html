@@ -1,0 +1,148 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="icon" type="image/x-icon" href="{% static 'icons/favicon.png' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Balance</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(#237A57, #093028);
+            color: #ffffff;
+            height: 100vh;
+        }
+
+        h1 {
+            font-size: 70px !important;
+            font-weight: bolder;
+        }
+
+        button {
+            transition: 0.5s ease;
+            border: 1px solid white;
+        }
+        .w-100{
+            width: 110% !important;
+        }
+
+        button:hover {
+            color: white !important;
+            background-color: #237A57 !important;
+            border: 1px solid white;
+        }
+
+        button {
+            color: #237A57 !important;
+        }
+
+      
+
+        .button2 {
+            background-color: #237A57 !important;
+            width: 30% !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .leaf-icon {
+            font-size: 4vw !important;
+        }
+
+        .primary {
+            gap: 13vw;
+            padding-bottom: 5vw;
+        }
+
+        .back-btn a{
+            color: #237A57 !important;
+            transition: 0.5s ease;
+        }
+        .back-btn a:hover{
+            background-color: rgba(252, 251, 251, 0.889) !important;
+        }
+        .oth{
+            width: 110% !important;
+        }
+        .mone{
+            margin-left: 10vw !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container pt-3">
+        <div class="row align-items-center ">
+            <div class="col-10 back-btn">
+                <a href="{% url 'home' %}" class="text-decoration-none button bg-white fs-3 fw-bold p-2 px-4 rounded"><i
+                        class="fa-solid fa-angles-left"></i> Back</a>
+            </div>
+            <div class="col-2 d-flex align-items-center gap-2">
+                <i class="fa-brands fa-canadian-maple-leaf leaf-icon"></i>
+                <h1>BOA</h1>
+            </div>
+        </div>
+
+        <div class="container mt-5 d-flex flex-column align-items-center">
+
+            <div class="d-flex primary">
+
+                <div class="">
+                    <h2>Primary checking:</h2>
+                    {% for d in usrdata %}
+                    <h4>{{d.usr_data.user_account_number}}</h4>
+                    {% endfor %}
+                </div>
+
+                <div class="">
+                    {% for d in usrdata %}
+                    <h2>Rs {{d.userbalance}}</h2>
+                    
+                    <h4>{{d.duser.username}}</h4>
+                    {% endfor %}
+                </div>
+
+            </div>
+
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="container">
+                    <div class="mone row gap-3 ms-5">
+                        <div class="col-3"><button type="submit" name="amount" value="100" class="w-100 py-2 fs-3 rounded-pill mt-4 fw-bold">Rs 100</button></div>
+                        <div class="col-3"><button type="submit" name="amount" value="250" class="w-100 py-2 fs-3 rounded-pill mt-4 fw-bold">Rs 250</button></div>
+                        <div class="col-3"><button type="submit" name="amount" value="500" class="w-100 py-2 fs-3 rounded-pill mt-4 fw-bold">Rs 500</button></div>
+                        <div class="col-3"><button type="submit" name="amount" value="1000" class="w-100 py-2 fs-3 rounded-pill mt-4 fw-bold">Rs 1000</button></div>
+                        <div class="col-3"><button type="submit" name="amount" value="5000" class="w-100 py-2 fs-3 rounded-pill mt-4 fw-bold">Rs 5000</button></div>
+                        <div class="col-3"><a href="{% url 'withdrawl' %}" class="oth w-100 mt-4 text-decoration-none button2 text-white fs-3 fw-bold p-2 px-4 rounded-pill bg-success border border-white ">other</a></div>
+                    </div>
+                </div>
+                
+            </form>
+            
+        </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

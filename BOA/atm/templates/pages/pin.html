@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="icon" type="image/x-icon" href="icons/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Enter Pin</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(#237A57, #093028);
+            color: #ffffff;
+            height: 100vh;
+        }
+
+        h1 {
+            font-size: 70px !important;
+            font-weight: bolder;
+        }
+
+        a,
+        button {
+            transition: 0.5s ease;
+        }
+
+        a:hover,
+        button:hover {
+            color: white;
+            background-color: #237A57 !important;
+            border: 1px solid white;
+        }
+
+        .button {
+            color: #237A57;
+        }
+
+        .leaf-icon {
+            font-size: 4vw !important;
+        }
+
+        input {
+            background-color: inherit;
+            color: white;
+            border: none;
+            text-align: center;
+            font-size: 1.8vw;
+            border-bottom: 1px solid white;
+        }
+
+        input:focus {
+            outline: none;
+        }
+
+        ::placeholder {
+            color: rgb(224, 217, 217);
+            text-align: center;
+            font-size: 1.8vw;
+            font-weight: 200;
+        }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        .abc {
+            color: #237A57;
+            width: 50px !important;
+            height: 50px !important;
+            border-radius: 50% !important;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            border: none;
+            font-size: 2vw;
+            font-weight: bold;
+
+        }
+
+        .row .body-btn {
+            width: 45%;
+        }
+
+        .row .body-btn:nth-of-type(1) {
+            background-color: white;
+            color: #237A57;
+        }
+
+        .row .body-btn:nth-of-type(2) {
+            background-color: inherit;
+            color: white;
+            border: 1px solid white;
+        }
+
+        .row .body-btn:nth-of-type(1):hover {
+            background-color: inherit !important;
+            color: white;
+        }
+
+        .row .body-btn:nth-of-type(2):hover {
+            background-color: white !important;
+            color: #237A57;
+        }
+
+        .heading {
+            font-size: 4vw;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container pt-3">
+        <div class="row align-items-center ">
+            <div class="col-10">
+                <a href="{% url 'main_page' %}"
+                    class="text-decoration-none button bg-white fs-3 fw-bold p-2 px-4 rounded"><i
+                        class="fa-solid fa-angles-left"></i> Cancel</a>
+            </div>
+            <div class="col-2 d-flex align-items-center gap-2">
+                <i class="fa-brands fa-canadian-maple-leaf leaf-icon"></i>
+                <h1>BOA</h1>
+            </div>
+        </div>
+        <!-- --------------------------------------body---------------------------------------------- -->
+        <div class="container w-25 ">
+            <div class="row text-center">
+                <form  method="POST">
+                    {% csrf_token %}
+                <h2 class="heading fw-bold">Enter Pin</h2>
+            </div>
+            <div class="row pt-1">
+                
+                    
+            </div>
+            <div class="row">
+
+                <div class="row pt-5">
+                    <div class="col">
+                        <h3 class="body-text">Enter username:</h3>
+                    </div>
+                    <div class="col">
+                        <input type="text" name="accno" id="userAccInput" class="border-3 border-top-0 border-start-0 border-end-0 border-white">
+                    </div>
+                </div>
+
+                <div class="row pt-5">
+                    <div class="col">
+                        <h3 class="body-text">Enter password</h3>
+                    </div>
+                    <div class="col">
+                        <input type="text" name="pin" id="userPinInput" class="border-3 border-top-0 border-start-0 border-end-0 border-white">
+                    </div>
+                </div>
+                
+            </div>
+            <div class="row justify-content-around pt-5">
+                <button type="submit"
+                    class="body-btn text-decoration-none text-center fs-4 fw-bold py-1 rounded-pill">Submit</button>
+                <a href="#" id="myLink"
+                    class="body-btn text-decoration-none text-center fs-4 fw-bold py-1 rounded-pill">Clear</a>
+            </div>
+        </form>
+        </div>
+
+
+    </div>
+
+
+
+    <script>
+
+
+        // -----------------------------------
+        document.getElementById('myLink').addEventListener('click', function () {
+
+            var inputField = document.getElementById('userPinInput');
+
+
+            // Clear the input field    
+            inputField.value = '';
+
+
+        });
+        document.getElementById('myLink').addEventListener('click', function () {
+
+            var inputFieldAcc = document.getElementById('userAccInput');
+
+
+            // Clear the input field    
+
+            inputFieldAcc.value = '';
+
+        });
+
+
+        function appendToInput(value) {
+            if (activeInputId) {
+                document.getElementById(activeInputId).value += value;
+            }
+        }
+
+        // Event listener to track the last clicked input field
+        document.addEventListener('click', function (event) {
+            if (event.target.tagName === 'INPUT') {
+                activeInputId = event.target.id;
+            }
+        });
+
+
+        // function appendToInput(value) {
+        //     // if(value )
+        //     document.getElementById("userAccInput").value += value;
+        //     // document.getElementById("userAccInput").value += value;
+
+        // }
+
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
